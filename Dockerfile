@@ -3,7 +3,7 @@ FROM python:3.9-alpine3.13
 
 LABEL maintainer="manuelhany@gmail.com"
 
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
 
 # copy from local machine to container directory
 COPY ./requirements.txt /tmp/requirements.txt
