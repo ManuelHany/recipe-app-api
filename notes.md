@@ -1,6 +1,6 @@
 # Start From
-- 08 - Configure Database
-  - 09 - Add wait_for_db manager command
+- 09 - create user model
+  - 05 - normalize user address
 
 #### Test
 - the simpletestCase is for tests that require no communication with database
@@ -59,3 +59,19 @@
   - build-base
   - postgresql-dev
   - musl-dev
+
+#### user model
+- Common Issues:
+  - running migrations before setting custom model.
+  - Typos in config
+  - indentation in manager or model.
+
+- common fields:
+  - email     `Emailfield`
+  - name      `Charfield`
+  - is_active `BooleanField`
+  - is_staff  `Booleanfield`
+
+- overriding default django user
+  - AbstractBaseUser --> Functionality for auth sys but no any fields
+  - PermissionsMixin --> Functionality for permissions feature and all its fields
