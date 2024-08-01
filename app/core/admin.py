@@ -7,11 +7,13 @@ from django.utils.translation import gettext_lazy as _
 
 from . import models
 
+
 class UserAdmin(BaseUserAdmin):
     """Define the admin pages for users."""
     # Here we basically customize the field sets variables
     # And we have only specified fields that exist in our models
-    # and exluded fields which do not exist in the default one such as the username field
+    # and excluded fields which do not exist in the default
+    # one such as the username field
     ordering = ['id']
     list_display = ['email', 'name']
     fieldsets = (
@@ -31,7 +33,8 @@ class UserAdmin(BaseUserAdmin):
     readonly_fields = ['last_login']
     add_fieldsets = (
         (None, {
-            'classes': ('wide',), # wide is enabling a css class which beautify the view a little bit
+            # wide is enabling a css class which beautify the view a little bit
+            'classes': ('wide',),
             'fields': (
                 'email',
                 'password1',
@@ -45,5 +48,6 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
-# Here we basically register the User model with the specification we specified in our UserAdmin class
+# Here we basically register the User model with the specification
+# we specified in our UserAdmin class
 admin.site.register(models.User, UserAdmin)

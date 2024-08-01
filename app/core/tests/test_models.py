@@ -19,7 +19,8 @@ class ModelTests(TestCase):
             password=password
         )
         self.assertEqual(user.email, email)
-        # we use user.check_password not user.password to check the hashed pass.
+        # we use user.check_password not user.password to check
+        # the hashed pass.
         self.assertTrue(user.check_password(password))
 
     def test_new_user_email_normalized(self):
