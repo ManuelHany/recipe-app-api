@@ -1,5 +1,6 @@
 # Start From
-- 10
+- 11 API Documentation
+  - 3 install drf-spectacular
 
 #### Test
 - the simpletestCase is for tests that require no communication with database
@@ -74,3 +75,13 @@
 - overriding default django user
   - AbstractBaseUser --> Functionality for auth sys but no any fields
   - PermissionsMixin --> Functionality for permissions feature and all its fields
+
+#### APIs documentation
+- What to doccument?
+  1. Available endpoints (paths) -> `/api/recipes`
+  2. Supported methods -> `Get'` `Post`, `PUT`, `PATCH`, `DELETE`
+  3. Format of payloads (inputs)
+     - parameters
+     - post json format
+  4. Format of responses (outputs) -> Response JSON format
+  5. Authentication process
