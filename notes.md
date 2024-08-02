@@ -1,6 +1,6 @@
 # Start From
-- 11 API Documentation
-  - 3 install drf-spectacular
+- 12 Build User API
+  - 4
 
 #### Test
 - the simpletestCase is for tests that require no communication with database
@@ -23,6 +23,10 @@
   - check indentation for tests
   - forgetting "test_" prefix. 
   - having both test/ directory and test.py 
+
+- Public and Private tests:
+  - public tests are tests that do not require authentication. 
+  - private tests are those that do require authentication.
   
 #### docker
 - docker run: Creates a new container from an image and optionally runs a command in it.
