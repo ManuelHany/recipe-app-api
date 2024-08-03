@@ -1,6 +1,6 @@
 # Start From
 - 12 Build User API
-  - 4
+  - 8 Write tests for manage user API
 
 #### Test
 - the simpletestCase is for tests that require no communication with database
@@ -89,3 +89,20 @@
      - post json format
   4. Format of responses (outputs) -> Response JSON format
   5. Authentication process
+
+
+#### Django
+- Serializers
+  -  a way to convert objects to and from python objects. 
+  - it takes json input it validates it
+  - convert it into a python object or a model into our database.
+  - automatically validate and save things into a specific model
+
+- class Mets:
+  - this is where we tell django rest the model and the fields and additional arguments that we want to pass to the serializer.
+
+- Authentication:
+  - Basic -> send username and passweord with each request.
+  - Token -> Use a token in the HTTP header. store on clinet (session storage, local storage, cookie or database)
+  - JSON Web Token (JWT) -> Use an access and refresh token (super scalable) to minimize requests
+  - Session -> Use cookies
