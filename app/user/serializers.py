@@ -21,7 +21,24 @@ class UserSerializer(serializers.ModelSerializer):
     # the create method is only called when the validation above
     # is successful ie langth is more than 5 foe example
     def create(self,  validate_data):
+        """Create and return a user with encrypted password."""
         return get_user_model().objects.create_user(**validate_data)
+
+    def update(self, instance, validated_data):
+        """Update and return user."""
+        # instance -> the instance which will be updated
+        # validated data -> the data that already passed through
+        #                   the serializer validation
+        # pop to remove its key from the validated_data dict
+        # after retrieving it. not like .get which retrieves only.
+        password = validated_data.pop('password', None)
+        user = super().update(instance, validated_data)
+
+        if password:
+            user.set_password(password)
+            user.save()
+
+        return user
 
 
 class AuthTokenSerializer(serializers.Serializer):
