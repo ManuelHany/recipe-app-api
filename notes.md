@@ -106,3 +106,18 @@
   - Token -> Use a token in the HTTP header. store on clinet (session storage, local storage, cookie or database)
   - JSON Web Token (JWT) -> Use an access and refresh token (super scalable) to minimize requests
   - Session -> Use cookies
+
+- APIView vs VIEWSets
+  - -> a view is what handles a request made to a certain URL.
+  - `APIView`
+    1. Focused around HTTP methods.
+    2. class methods for HTTP -> GET, POST, PUT PATCH, DELETE
+    3. Provide flexibility over URLs and logic 
+    4. Useful for NON CRUD APIs: 
+      - eg: authentication, jobs, external apis.
+      - anythin that doesn't map to a specific model in your system.
+  - `Viewsets`
+    1. focused around actions -> Retreive, list, update, partial updated, destroy
+    2. Map to django models
+    3. Use routers to generate URLs
+    4. Great for CRUD operations on models. 
