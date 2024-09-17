@@ -1,6 +1,6 @@
 # Start From
 - 13 Build Recipe API
-  - 1 Recipe API design_en
+  - 3 Write test for recipe model
 
 #### Test
 - the simpletestCase is for tests that require no communication with database
