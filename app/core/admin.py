@@ -51,3 +51,4 @@ class UserAdmin(BaseUserAdmin):
 # Here we basically register the User model with the specification
 # we specified in our UserAdmin class
 admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Recipe)
