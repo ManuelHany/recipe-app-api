@@ -11,7 +11,7 @@ from recipe import serializers
 
 class RecipeViewSet(viewsets.ModelViewSet):
     """View for manage recipe APIs."""
-    serializer_class = serializers.RecipeSerializer
+    serializer_class = serializers.RecipeDetailSerializer
     # Represents the objects that are available for this view set.
     # Because it is a ModelViewSet so it expects to work with a model.
     queryset = Recipe.objects.all()
@@ -27,3 +27,20 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """Retrieve recipes for authenticated user."""
         return self.queryset.filter(user=self.request.user).order_by('-id')
+
+
+    def get_serializer_class(self):
+        """Return the serializer class for request."""
+        # this is the function that django uses to decide which class object to use.
+        # we override it to adapt its behavior.
+        if self.action == 'list':
+            # we did not use RecipeSerializer() and instead used RecipeSerializer
+            # because we want to return a reference to the class, and then let django
+            # handle its shit.
+            return serializers.RecipeSerializer
+
+        return self.serializer_class
+
+    def perform_create(self, serializer):
+        """Create a new recipe."""
+        serializer.save(user=self.request.user)
