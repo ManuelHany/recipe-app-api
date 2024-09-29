@@ -1,6 +1,6 @@
 # Start From
-- 13 Build Recipe API
-  - 5 Create Recipe App
+- 14 Build Recipe API
+  - 7 Write tests for deleting ingredients
 
 #### Test
 - the simpletestCase is for tests that require no communication with database
@@ -98,7 +98,12 @@
   - convert it into a python object or a model into our database.
   - automatically validate and save things into a specific model
 
-- class Mets:
+- Serializers VS Nested Serializers:
+  - are often used to represent related models, and both serializers.Serializer and serializers.ModelSerializer support nesting, though ModelSerializer makes it easier when working with model-based relationships.
+      1. Serializers.ModelSerializer (srializers) is used to map exactly the constrains inside the models itself like the CharField and everything.
+      2. Serializers.Serializer gives you full control but requires manual field definitions and methods.
+
+- class Meta:
   - this is where we tell django rest the model and the fields and additional arguments that we want to pass to the serializer.
 
 - Authentication:
@@ -115,9 +120,19 @@
     3. Provide flexibility over URLs and logic 
     4. Useful for NON CRUD APIs: 
       - eg: authentication, jobs, external apis.
-      - anythin that doesn't map to a specific model in your system.
+      - anything that doesn't map to a specific model in your system.
   - `Viewsets`
-    1. focused around actions -> Retreive, list, update, partial updated, destroy
+    1. focused around actions -> Retrieve, list, update, partial updated, destroy
     2. Map to django models
     3. Use routers to generate URLs
-    4. Great for CRUD operations on models. 
+    4. Great for CRUD operations on models.
+
+- `mixins`
+  - mixins are mainly things that you could mix in to a view to add functionality.
+
+#### Python
+- setattr:
+  - The `setattr` function in Python is used to set the value of an attribute of an object dynamically. It takes three arguments: 
+  1. `object`: The object whose attribute is being set.
+  2. `attribute name`: The name of the attribute you want to set (as a string).
+  3. `value`: The value to assign to the attribute.
