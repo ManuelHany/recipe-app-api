@@ -31,9 +31,13 @@
 #### docker
 - docker run: Creates a new container from an image and optionally runs a command in it.
 - docker exec -it: Executes a command in an already running container, often used for debugging or interacting with the container.
+- docker compose run --rm app sh -c "python manage.py <command>"
 - The problem with docker:
   - docker compose make sure the service is started but it doesn't mean that postgres has started for example. 
   - solution is to create custom management wait for db command
+  - th PYTHONUNBUFFERED env is used to directly buffer or python logs and prints to be visivle in docker logs.
+- `ARG` vs `ENV`:
+  - Unlike ENV, which sets environment variables available at runtime (inside the container), ARG is only available during the image build process. Once the image is built, the ARG variable is no longer accessible inside the running container.
 
 
 #### database

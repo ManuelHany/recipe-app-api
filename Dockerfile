@@ -14,6 +14,7 @@ WORKDIR /app
 # access container through port 8000
 EXPOSE 8000
 
+# During the image build, the DEV argument is available to conditionally modify the build process.
 ARG DEV=false
 # specify a single run command because spreading the commands 
 # int multiple RUN commands will divide them into multiple image
